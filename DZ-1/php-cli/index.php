@@ -23,7 +23,7 @@ var_dump((int)'012345'); // выведет 12345, потому что строк
 var_dump((float)123.0 === (int)123.0); // будет false, т.к. типы данных будут отличаться
 var_dump(0 == 'hello, world'); // будет false, т.к. типы данных будут отличаться
 
-# docker run --rm -v ${pwd}/php-cli/:/cli php:8.2-cli php /cli/start.php
+# docker run --rm -v ${pwd}/php-cli/:/cli php:8.2-cli php /cli/index.php
 
 echo ("Task-3"); // В 7.4
 
@@ -35,7 +35,7 @@ var_dump((int)'012345'); // выведет 12345, потому что строк
 var_dump((float)123.0 === (int)123.0); // будет false, т.к. типы данных будут отличаться
 var_dump(0 == 'hello, world'); // будет true
 
-# docker run --rm -v ${pwd}/php-cli/:/cli php:7.4-cli php /cli/start.php
+# docker run --rm -v ${pwd}/php-cli/:/cli php:7.4-cli php /cli/index.php
 
 echo ("Task-4");
 
