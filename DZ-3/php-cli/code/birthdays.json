@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Oleg",
+        "birthday": "06-10-1975"
+    },
+    {
+        "name": "Ben",
+        "birthday": "05-10-2000"
+    },
+    {
+        "name": "Anna",
+        "birthday": "04-10-1901"
+    },
+    {
+        "name": "Olga",
+        "birthday": "07-10-2001"
+    },
+    {
+        "name": "Valera",
+        "birthday": "08-10-1924"
+    },
+    {
+        "name": "Igor",
+        "birthday": "09-10-1964"
+    },
+    {
+        "name": "Alex",
+        "birthday": "10-10-1910"
+    },
+    {
+        "name": "Vadim",
+        "birthday": "11-10-1987"
+    },
+    {
+        "name": "Anton",
+        "birthday": "12-10-1965"
+    },
+    {
+        "name": "Irina",
+        "birthday": "13-10-2021"
+    }
+]

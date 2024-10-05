@@ -4,20 +4,20 @@ function mathOperations($arg1, $arg2, $operation) {
   switch ($operation) {
     case 'summ':
       return $arg1 + $arg2;
-      break;
+      // break;
     case 'subtract':
       return $arg1 - $arg2;
-      break;
+      // break;
     case 'multiply':
       return $arg1 * $arg2;
-      break;
+      // break;
     case 'divides':
       if($arg2 != 0) {
         return $arg1 / $arg2;
       } else {
         return "Ошибка: на ноль делить нельзя";
       }
-      break;
+      // break;
     default:
       return "Что то пошло не так. Попробуйте позже.";
   }
