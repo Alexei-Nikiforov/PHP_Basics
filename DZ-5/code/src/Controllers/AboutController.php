@@ -12,7 +12,9 @@ class AboutController
     $render = new Render();
 
     return $render->renderPage('about.twig', [
-      'phone' => $phone
+      'phone' => $phone,
+      'dataTime' => date("d/m/Y") ,
+      'time' => date('H:i', (time()+60*60*3))
     ]);
   }
 }

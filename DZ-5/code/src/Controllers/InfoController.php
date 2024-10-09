@@ -13,7 +13,9 @@ class InfoController
     return $render->renderPage('site-info.twig', [
       'server'=>$siteInfo->getWebServer(),
       'phpVersion'=>$siteInfo->getPhpVersion(),
-      'userAgent'=>$siteInfo->getWebAgent()
+      'userAgent'=>$siteInfo->getWebAgent(),
+      'dataTime' => date("d/m/Y") ,
+      'time' => date('H:i', (time()+60*60*3))
     ]);
   }
 }
