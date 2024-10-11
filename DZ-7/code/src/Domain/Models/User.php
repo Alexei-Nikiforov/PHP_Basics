@@ -145,7 +145,7 @@ class User {
         ]);
     }
 
-    public function updateUser(array $userDataArray, int $user_id): void{
+    public function updateUser(array $userDataArray): void{
         $sql = "UPDATE users SET ";
 
         $counter = 0;
@@ -159,7 +159,7 @@ class User {
 
             $counter++;
         }
-        $sql .= " WHERE id_user = " . $user_id;
+        $sql .= " WHERE id_user = " . $this->getUserId();
 
 
         $handler = Application::$storage->get()->prepare($sql);

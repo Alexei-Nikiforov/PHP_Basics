@@ -65,22 +65,25 @@ class UserController extends AbstractController {
     }
 
     public function actionEdit(): string {
+
         $render = new Render();
 
-        $action = 'save';
-        if(isset($_GET['id'])){
+        if(isset($_POST['id'])){
             $userId = $_POST['id'];
-            $action = '/user/update';
+            $action = 'update';
             $userData = User::getUserDataByID($userId);
+
+        } else {
+            $action = 'save';
         }
-        
+
         return $render->renderPageWithForm(
-                'user-form.tpl',
-                [
-                    'title' => 'Форма создания пользователя',
-                    'user_data'=> $userData ?? [],
-                    'action' => $action
-                ]);
+            'user-form.tpl',
+            [
+                'title' => 'Форма создания пользователя',
+                'user_data'=> $userData ?? [],
+                'action' => $action
+            ]);
     }
 
     public function actionAuth(): string {
@@ -108,7 +111,7 @@ class UserController extends AbstractController {
                 User::setToken($_SESSION['auth']['id_user'], $token);
             }
         }
-        
+
         if(!$result){
             $render = new Render();
 
@@ -135,7 +138,7 @@ class UserController extends AbstractController {
     }
 
     public function actionUpdate(): string {
-        if($_POST['id'] >= 0) {
+        if(User::exists($_POST['id'])) {
             $user = new User();
             $user->setUserId($_POST['id']);
 
@@ -148,7 +151,11 @@ class UserController extends AbstractController {
                 $arrayData['user_lastname'] = $_POST['lastname'];
             }
 
-            $user->updateUser($arrayData, $_POST['id']);
+            if(isset($_POST['birthday'])) {
+                $arrayData['user_birthday_timestamp'] = strtotime($_POST['birthday']);
+            }
+
+            $user->updateUser($arrayData);
         }
         else {
             throw new \Exception("Пользователь не существует");
@@ -156,7 +163,7 @@ class UserController extends AbstractController {
 
         $render = new Render();
         return $render->renderPage(
-            'user-empty.tpl',
+            'user-created.tpl',
             [
                 'title' => 'Пользователь обновлен',
                 'message' => "Обновлен пользователь " . $user->getUserId()
@@ -164,6 +171,7 @@ class UserController extends AbstractController {
     }
 
     public function actionDelete(): string {
+
         if($_POST['id'] >= 0) {
             User::deleteFromStorage($_POST['id']);
 

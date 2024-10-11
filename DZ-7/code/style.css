@@ -1,10 +1,6 @@
-html {
-  scroll-behavior: smooth;
-  background: #5a69aa;
-}
-
 body {
   margin: 10px;
+  scroll-behavior: smooth;
 }
 
 p {

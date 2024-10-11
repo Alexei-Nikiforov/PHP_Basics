@@ -26,6 +26,7 @@ class Render {
         $templateVariables['random_int'] = rand(1, 10000);
 
         if(isset($_SESSION['user_name'])){
+
             $templateVariables['names'] =$_SESSION['user_name'];
             $templateVariables['user_authorized'] = true;
         }

@@ -4,7 +4,7 @@
         <title>{{ title }}</title>
          <link href="../../../style.css" rel="stylesheet" >
     </head>
-    <body>
+    <body style="background-color: #5a69aa">
         <div id="header">
             {% include "auth-template.tpl" %}
         </div>
